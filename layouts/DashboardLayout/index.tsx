@@ -25,7 +25,7 @@ const DashboardLayout = ({
 				<Header />
 				<div className='flex'>
 					<Navigation />
-					<main className=''>{children}</main>
+					<main className='mt-[112px] ml-[283px] w-full p-16'>{children}</main>
 				</div>
 			</section>
 		</>

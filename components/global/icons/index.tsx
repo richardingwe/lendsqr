@@ -3,6 +3,10 @@ import SearchIcon from "@/public/assets/icons/search.svg";
 import NotificationIcon from "@/public/assets/icons/notification.svg";
 import CaretDownIcon from "@/public/assets/icons/caret-down.svg";
 import ArrowDownIcon from "@/public/assets/icons/arrow-down.svg";
+import AllUsersIcon from "@/public/assets/icons/all-users.svg";
+import ActiveUsersIcon from "@/public/assets/icons/active-users.svg";
+import UsersWithLoansIcon from "@/public/assets/icons/users-with-loans.svg";
+import UsersWithSavingsIcon from "@/public/assets/icons/users-with-savings.svg";
 
 // navigation icons
 import DashboardIcon from "@/public/assets/icons/dashboard.svg";
@@ -52,6 +56,10 @@ const Icon = {
 	PreferencesIcon,
 	FeesAndPricingIcon,
 	AuditLogsIcon,
+	AllUsersIcon,
+	ActiveUsersIcon,
+	UsersWithLoansIcon,
+	UsersWithSavingsIcon,
 };
 
 export default Icon;

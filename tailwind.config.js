@@ -14,34 +14,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#5645F5',
-        secondary: '#F4B746',
-        accent: {
-          yellow: '#FEEBB4',
-          blue: '#45D5F5',
-          purple: '#8645F5',
-          '01': '#8645F5',
-          '02': '#45D5F5',
-          '03': '#FEEBB4'
-        },
-        dark: '#070330',
-        light: '#F6F5FE',
-        hover: '#E5E3FE',
+        primary: '#213F7D',
+        secondary: '#39CDCC',
         tc: {
-          '01': '#CDCDD6',
-          '02': '#ACABBA',
-          '03': '#838197',
-          '04': '#5A5775',
-          '05': '#302D53',
-          '06': '#070330',
-          '07': '#060328',
-          '08': '#050220',
-          '09': '#040218',
-          '10': '#020110',
-          '11': '#01010A',
-          main: '#2A0079',
-          secondary: '#5A5775',
-          'white-ish': '#F6F5FE',
+          dark: '#213F7D',
+          light: '#545F7D'
         },
         status: {
           success: {

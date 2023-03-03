@@ -46,13 +46,14 @@ const LoginForm = () => {
 				<div className='mt-6 flex items-center'>
 					<Link
 						href='/auth/forgot-password'
-						className='text-secondary text-xs uppercase font-semibold leading-[0.1em]'>
+						className='text-secondary text-xs uppercase font-semibold tracking-[0.1em]'>
 						Forgot PASSWORD?
 					</Link>
 				</div>
 				<Button
 					className='w-full mt-8'
 					loading={false}
+					theme='secondary'
 					disabled={!isValid}
 					type='submit'>
 					LOG IN

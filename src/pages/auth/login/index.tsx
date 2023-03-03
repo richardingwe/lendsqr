@@ -5,7 +5,7 @@ import { NextPageWithLayout } from "../../_app";
 
 const LoginPage: NextPageWithLayout = () => {
 	return (
-		<section className='w-full max-w-[447px]'>
+		<section className='w-full max-w-[447px] font-AvenirNext'>
 			<div className='space-y-3'>
 				<h1 className='text-primary text-[40px] font-bold'>Welcome!</h1>
 				<p className='text-tc-light text-xl'>Enter details to login.</p>

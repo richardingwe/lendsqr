@@ -41,8 +41,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        SpaceGrotesk: ["Space Grotesk", "sans-serif"],
-        Karla: ["Karla", "sans-serif"],
+        AvenirNext: ["Avenir Next", "sans-serif"],
+        WorkSans: ["Work Sans", "sans-serif"],
       },
       container: {
         center: true,

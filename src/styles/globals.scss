@@ -27,11 +27,15 @@
 }
 
 body {
-	font-family: "Avenir Next";
+	font-family: "Work Sans", sans-serif;
 	height: 100%;
 	min-height: 100vh;
 }
 
 .auth-shadow {
 	box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+}
+
+.header-shadow {
+	box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
 }

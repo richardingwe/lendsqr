@@ -238,13 +238,13 @@ const Input = ({
 			)}
 
 			{right && (
-				<div className='absolute flex items-center justify-center h-[44px] right-[2px] top-[30px]'>
+				<div className='absolute flex items-center justify-center right-0 top-[8px]'>
 					{right}
 				</div>
 			)}
 
 			{left && (
-				<div className='absolute flex items-center justify-center h-[44px] left-[2px] top-[30px]'>
+				<div className='absolute flex items-center justify-center left-0 top-[8px]'>
 					{left}
 				</div>
 			)}

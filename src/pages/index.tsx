@@ -1,7 +1,14 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const IndexPage: NextPage = () => {
-	return <h1 className='text-2xl'>Hello Patience..</h1>;
+	const router = useRouter();
+
+	useEffect(() => {
+		router.push("/dashboard");
+	}, []);
+	return <> </>;
 };
 
 export default IndexPage;

@@ -1,7 +1,6 @@
-import { LogoIcon } from "@/components/global/icons";
+import Icon from "@/components/global/icons";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 
 type AuthLayoutProps = {
 	title: string;
@@ -18,7 +17,7 @@ const AuthLayout = ({ children, title = "Lendsqr" }: AuthLayoutProps) => {
 				<aside className='w-1/2 h-full'>
 					<section className='py-28 pl-20'>
 						<div className='ml-4'>
-							<LogoIcon />
+							<Icon.LogoIcon width='174px' />
 						</div>
 						<Image
 							src='/assets/images/auth-aside-svg.svg'

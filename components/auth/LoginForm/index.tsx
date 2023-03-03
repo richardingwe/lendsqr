@@ -27,46 +27,36 @@ const LoginForm = () => {
 
 	return (
 		<FormProvider {...methods}>
-			<form onSubmit={methods.handleSubmit(onSubmit)} className='w-full'>
-				<div className='space-y-4'>
+			<form onSubmit={methods.handleSubmit(onSubmit)} className='w-full mt-16'>
+				<div className='space-y-6'>
 					<Input
 						type='email'
 						name='email'
 						focused
-						label='Email Address'
 						rules={["required", "email"]}
 						placeholder='E.g Wale@Azaman.com'
 					/>
 					<Input
 						type='password'
 						name='password'
-						label='Password'
 						placeholder='Password'
 						rules={["required"]}
 					/>
 				</div>
-				<div className='mt-5 flex items-center justify-end'>
+				<div className='mt-6 flex items-center'>
 					<Link
 						href='/auth/forgot-password'
-						className='text-primary capitalize font-bold leading-6'>
-						I forgot my password!
+						className='text-secondary text-xs uppercase font-semibold leading-[0.1em]'>
+						Forgot PASSWORD?
 					</Link>
 				</div>
 				<Button
-					className='w-full xl:w-[200px] mt-32 lg:mt-16'
+					className='w-full mt-8'
 					loading={false}
 					disabled={!isValid}
 					type='submit'>
-					login
+					LOG IN
 				</Button>
-				<div className='mt-7 text-center xl:text-left text-tc-main'>
-					Don’t have an account?{" "}
-					<Link
-						href='/auth/signup'
-						className='text-primary capitalize font-bold leading-6'>
-						Signup
-					</Link>
-				</div>
 			</form>
 		</FormProvider>
 	);

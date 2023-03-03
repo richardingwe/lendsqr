@@ -1,5 +1,7 @@
 import Icon from "@/components/global/icons";
 import { navigations } from "@/data/navigationData";
+import { cn } from "@/helpers/utils";
+import { useActiveLink } from "hooks/useActiveLink";
 import Link from "next/link";
 
 const Navigation = () => {
@@ -12,19 +14,25 @@ const Navigation = () => {
 			</button>
 
 			<nav className='mt-[52px] space-y-10'>
-				{navigations.map((navigation) => {
+				{navigations.map((navigation, index) => {
 					return (
-						<div className='space-y-2'>
+						<div className='space-y-2' key={navigation.sectionTitle + index}>
 							<h3 className='text-xs px-8 text-tc-light font-medium'>
 								{navigation.sectionTitle}
 							</h3>
 							<ul>
-								{navigation.links.map((link) => {
+								{navigation.links.map((link, index) => {
 									return (
-										<li className=''>
+										<li key={link.label + index}>
 											<Link
 												href={link.to}
-												className='flex w-full opacity-60 hover:opacity-100 px-8 py-[10px] border-l-[3px] transition-all border-transparent hover:border-secondary hover:bg-[#39cdcc0f] items-center space-x-2'>
+												className={cn(
+													"flex w-full opacity-60 hover:opacity-100 px-8 py-[10px] border-l-[3px] transition-all border-transparent hover:border-secondary hover:bg-[#39cdcc0f] items-center space-x-2",
+													{
+														"opacity-100 border-secondary bg-[#39cdcc0f]":
+															useActiveLink(link.to),
+													}
+												)}>
 												{link.icon}
 												<span className='text-primary'>{link.label}</span>
 											</Link>

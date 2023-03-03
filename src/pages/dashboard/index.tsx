@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import { NextPageWithLayout } from "../_app";
 
 const DashboardPage: NextPageWithLayout = () => {
-	return <section>DashboardPage</section>;
+	return <section></section>;
 };
 
 DashboardPage.getLayout = function getLayout(page: ReactElement) {

@@ -2,6 +2,7 @@ import Button from "@/components/global/Button";
 import Icon from "@/components/global/icons";
 import Input from "@/components/global/Input";
 import Image from "next/image";
+import Link from "next/link";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 const Header = () => {
@@ -22,10 +23,10 @@ const Header = () => {
 		event?.stopPropagation();
 	};
 	return (
-		<header className='flex items-center space-x-40 p-8 bg-white header-shadow'>
-			<div className='ml-4'>
+		<header className='flex z-50 fixed top-0 left-0 right-0 items-center space-x-40 p-8 bg-white header-shadow'>
+			<Link href='/dashboard' className='ml-4'>
 				<Icon.LogoIcon width='144.8px' />
-			</div>
+			</Link>
 			<div className='w-full flex items-center justify-between'>
 				<FormProvider {...methods}>
 					<form onSubmit={methods.handleSubmit(onSubmit)} className=''>

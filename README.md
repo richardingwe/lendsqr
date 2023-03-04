@@ -1,3 +1,27 @@
+# Lendsqr
+
+At Lendsqr, many of our lenders use web apps to reach over half a million customers. At this scale, we use React with TypeScript and SCSS as its frontend software development stack which allows us to rapidly ideate and release features rapidly and reliably.
+
+### Urls
+
+```link
+https://richardingwe-lendsqr-fe-test.vercel.app
+```
+
+## Set up project
+
+Install dependencies using
+
+```bash
+yarn
+```
+
+Start the app using
+
+```bash
+yarn dev
+```
+
 # Redux Toolkit TypeScript Example
 
 This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).

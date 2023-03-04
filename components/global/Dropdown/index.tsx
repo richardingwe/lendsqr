@@ -32,7 +32,7 @@ const Dropdown = ({
 			ref={menuRef}
 			onClick={() => setShowDropdown(!showDropdown)}>
 			{trigger}
-			<div>
+			<div onClick={(e) => e.stopPropagation()}>
 				{showDropdown && (
 					<motion.div
 						initial={{ scale: 0.5, opacity: 0 }}
@@ -41,7 +41,7 @@ const Dropdown = ({
 						className={cn(
 							"absolute z-30 box-shadow overflow-hidden",
 							className,
-							position === "bottom" ? "top-[58px]" : "bottom-[53px]"
+							position === "bottom" ? "top-[38px]" : "bottom-[23px]"
 						)}>
 						<div>{children}</div>
 					</motion.div>

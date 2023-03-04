@@ -3,6 +3,7 @@ import Icon from "@/components/global/icons";
 import StatusPill from "@/components/global/StatusPill";
 import { cn } from "@/helpers/utils";
 import Link from "next/link";
+import UsersFilter from "../UsersFilter";
 
 const UsersTable = () => {
 	const tableHead = [
@@ -114,12 +115,18 @@ const UsersTable = () => {
 							{tableHead.map((item, index) => {
 								return (
 									<th key={item.label + index}>
-										<div className='flex space-x-2'>
-											<span className='text-xs font-semibold uppercase'>
-												{item.label}
-											</span>
-											{item.label && <Icon.FilterResultsIcon />}
-										</div>
+										<Dropdown
+											className='left-0'
+											trigger={
+												<button className='flex space-x-2'>
+													<span className='text-xs font-semibold uppercase'>
+														{item.label}
+													</span>
+													{item.label && <Icon.FilterResultsIcon />}
+												</button>
+											}>
+											<UsersFilter />
+										</Dropdown>
 									</th>
 								);
 							})}
@@ -159,18 +166,18 @@ const UsersTable = () => {
 													<Icon.MoreActionIcon />
 												</button>
 											}>
-											<div className='w-[180px] bg-white p-5 box-shadow space-y-5 text-sm text-tc-light'>
+											<div className='w-[180px] bg-white rounded box-shadow text-sm py-2.5 text-tc-light'>
 												<Link
 													href='/users/1'
-													className='flex items-center space-x-2'>
+													className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
 													<Icon.ViewIcon />
 													<span>View Details</span>
 												</Link>
-												<button className='flex items-center space-x-2'>
+												<button className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
 													<Icon.BlacklistIcon />
 													<span>Blacklist User</span>
 												</button>
-												<button className='flex items-center space-x-2'>
+												<button className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
 													<Icon.ActivateIcon />
 													<span>Activate User</span>
 												</button>

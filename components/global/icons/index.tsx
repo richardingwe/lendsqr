@@ -9,6 +9,9 @@ import UsersWithLoansIcon from "@/public/assets/icons/users-with-loans.svg";
 import UsersWithSavingsIcon from "@/public/assets/icons/users-with-savings.svg";
 import FilterResultsIcon from "@/public/assets/icons/filter-results-button.svg";
 import MoreActionIcon from "@/public/assets/icons/more.svg";
+import ViewIcon from "@/public/assets/icons/view.svg";
+import BlacklistIcon from "@/public/assets/icons/blacklist.svg";
+import ActivateIcon from "@/public/assets/icons/activate.svg";
 
 // navigation icons
 import DashboardIcon from "@/public/assets/icons/dashboard.svg";
@@ -64,6 +67,9 @@ const Icon = {
 	UsersWithSavingsIcon,
 	FilterResultsIcon,
 	MoreActionIcon,
+	ViewIcon,
+	BlacklistIcon,
+	ActivateIcon,
 };
 
 export default Icon;

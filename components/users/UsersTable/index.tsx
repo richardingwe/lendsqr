@@ -1,6 +1,8 @@
+import Dropdown from "@/components/global/Dropdown";
 import Icon from "@/components/global/icons";
 import StatusPill from "@/components/global/StatusPill";
 import { cn } from "@/helpers/utils";
+import Link from "next/link";
 
 const UsersTable = () => {
 	const tableHead = [
@@ -150,9 +152,30 @@ const UsersTable = () => {
 										);
 									})}
 									<td>
-										<button className='flex items-center justify-center'>
-											<Icon.MoreActionIcon />
-										</button>
+										<Dropdown
+											className='right-0'
+											trigger={
+												<button className='flex items-center justify-center'>
+													<Icon.MoreActionIcon />
+												</button>
+											}>
+											<div className='w-[180px] bg-white p-5 box-shadow space-y-5 text-sm text-tc-light'>
+												<Link
+													href='/users/1'
+													className='flex items-center space-x-2'>
+													<Icon.ViewIcon />
+													<span>View Details</span>
+												</Link>
+												<button className='flex items-center space-x-2'>
+													<Icon.BlacklistIcon />
+													<span>Blacklist User</span>
+												</button>
+												<button className='flex items-center space-x-2'>
+													<Icon.ActivateIcon />
+													<span>Activate User</span>
+												</button>
+											</div>
+										</Dropdown>
 									</td>
 								</tr>
 							);

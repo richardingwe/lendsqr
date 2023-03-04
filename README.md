@@ -5,7 +5,7 @@ At Lendsqr, many of our lenders use web apps to reach over half a million custom
 ### Urls
 
 ```link
-https://richardingwe-lendsqr-fe-test.vercel.app
+https://richardingwe-lendsqr-fe-test.vercel.app/auth/login
 ```
 
 ## Set up project

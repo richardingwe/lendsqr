@@ -123,6 +123,11 @@ export const navigations = [
 				icon: <Icon.AuditLogsIcon />,
 				to: "/dashboard",
 			},
+			{
+				label: "Systems Messages",
+				icon: <Icon.SystemMessagesIcon />,
+				to: "/dashboard",
+			},
 		],
 	},
 ];

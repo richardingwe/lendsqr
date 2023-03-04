@@ -44,6 +44,15 @@ const Navigation = () => {
 					);
 				})}
 			</nav>
+
+			<div className='mt-[70px] text-primary border-t-[0.5px] border-primary pt-[10px]'>
+				<button className='flex w-full px-8 py-[10px] items-center space-x-2'>
+					<Icon.LogoutIcon />
+					<span>Logout</span>
+				</button>
+
+				<div className='px-8 mt-10'>v1.2.0</div>
+			</div>
 		</section>
 	);
 };

@@ -38,6 +38,7 @@ import PreferencesIcon from "@/public/assets/icons/preferences.svg";
 import FeesAndPricingIcon from "@/public/assets/icons/fees-and-pricing.svg";
 import AuditLogsIcon from "@/public/assets/icons/audit-logs.svg";
 import SystemMessagesIcon from "@/public/assets/icons/systems-messages.svg";
+import LogoutIcon from "@/public/assets/icons/logout.svg";
 
 const Icon = {
 	LogoIcon,
@@ -66,6 +67,7 @@ const Icon = {
 	FeesAndPricingIcon,
 	AuditLogsIcon,
 	SystemMessagesIcon,
+	LogoutIcon,
 	AllUsersIcon,
 	ActiveUsersIcon,
 	UsersWithLoansIcon,

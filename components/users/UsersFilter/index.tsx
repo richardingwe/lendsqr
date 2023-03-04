@@ -6,8 +6,11 @@ const UsersFilter = () => {
 	const methods = useForm({
 		mode: "onChange",
 		defaultValues: {
+			username: "",
 			email: "",
-			password: "",
+			date: "",
+			organization: "",
+			status: "",
 		},
 	});
 

@@ -12,6 +12,9 @@ import MoreActionIcon from "@/public/assets/icons/more.svg";
 import ViewIcon from "@/public/assets/icons/view.svg";
 import BlacklistIcon from "@/public/assets/icons/blacklist.svg";
 import ActivateIcon from "@/public/assets/icons/activate.svg";
+import BackIcon from "@/public/assets/icons/back.svg";
+import ProfileIcon from "@/public/assets/icons/profile.svg";
+import RatingIcon from "@/public/assets/icons/rating.svg";
 
 // navigation icons
 import DashboardIcon from "@/public/assets/icons/dashboard.svg";
@@ -70,6 +73,9 @@ const Icon = {
 	ViewIcon,
 	BlacklistIcon,
 	ActivateIcon,
+	BackIcon,
+	ProfileIcon,
+	RatingIcon,
 };
 
 export default Icon;

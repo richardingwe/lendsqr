@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Header from "@/components/layouts/Header";
 import Navigation from "@/components/layouts/Navigation";
-import { useRouter } from "next/router";
 
 type DashboardLayoutProps = {
 	title: string;

@@ -20,7 +20,7 @@ const LoginForm = () => {
 	} = methods;
 
 	/* Handle submit */
-	const onSubmit: SubmitHandler<any> = async (payload, event) => {
+	const onSubmit: SubmitHandler<unknown> = async (payload, event) => {
 		event?.stopPropagation();
 		router.push("/");
 	};

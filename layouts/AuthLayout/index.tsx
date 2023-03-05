@@ -14,7 +14,7 @@ const AuthLayout = ({ children, title = "Lendsqr" }: AuthLayoutProps) => {
 				<title>{title}</title>
 			</Head>
 			<section className='flex w-full h-screen items-center bg-white'>
-				<aside className='w-1/2 h-full'>
+				<aside className='hidden xl:block w-1/2 h-full'>
 					<section className='py-28 pl-20'>
 						<div className='ml-4'>
 							<Icon.LogoIcon width='174px' />
@@ -29,7 +29,7 @@ const AuthLayout = ({ children, title = "Lendsqr" }: AuthLayoutProps) => {
 						/>
 					</section>
 				</aside>
-				<main className='w-1/2 h-full auth-shadow pt-56 px-[100px]'>
+				<main className='w-full xl:w-1/2 h-full container auth-shadow lg:pt-56 lg:px-[100px]'>
 					{children}
 				</main>
 			</section>

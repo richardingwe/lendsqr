@@ -35,9 +35,9 @@ const UsersPage: NextPageWithLayout = () => {
 	}, [isSuccess, data, error]);
 
 	return (
-		<section>
+		<section className='mb-4'>
 			<GoBack text='Back to Users' />
-			<div className='mt-6 flex justify-between items-center'>
+			<div className='mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between sm:items-center'>
 				<h1 className='text-primary font-medium text-2xl'>Users</h1>
 
 				<div className='flex items-center space-x-5'>

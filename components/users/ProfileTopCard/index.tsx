@@ -26,14 +26,14 @@ const ProfileTopCard = ({ data }: { data: User }) => {
 	];
 
 	return (
-		<section className='p-8 pb-0 rounded box-shadow border border-[rgba(33, 63, 125, 0.06)] mt-10'>
-			<div className='flex items-center space-x-5 mb-12'>
-				<div className='p-8 rounded-full bg-[#213f7d29] w-fit'>
+		<section className='p-4 pb-0 lg:p-8 lg:pb-0 rounded box-shadow border border-[rgba(33, 63, 125, 0.06)] mt-10'>
+			<div className='flex flex-col lg:flex-row items-center lg:space-x-5 mb-6 lg:mb-12'>
+				<div className='p-4 lg:p-8 rounded-full bg-[#213f7d29] w-fit'>
 					<Icon.ProfileIcon />
 				</div>
-				<div className='flex items-center space-x-8'>
+				<div className='flex flex-col mt-4 lg:mt-0 text-center sm:text-left sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8'>
 					<div className='space-y-2'>
-						<div className='text-primary text-[22px] font-medium'>
+						<div className='text-primary text-[22px]  font-medium'>
 							{data?.profile?.firstName} {data?.profile?.lastName}
 						</div>
 						<div className='text-tc-light text-sm'>{data?.accountNumber}</div>
@@ -57,14 +57,14 @@ const ProfileTopCard = ({ data }: { data: User }) => {
 				</div>
 			</div>
 
-			<ul className='flex items-center justify-between'>
+			<ul className='flex items-center overflow-scroll justify-between'>
 				{profileNavigation.map((nav, index) => {
 					return (
 						<li key={nav.text}>
 							<Link
 								href='/users/1'
 								className={cn(
-									"px-6 pb-2 inline-block border-b-2 border-transparent text-[rgba(0, 0, 0, 0.8)]",
+									"px-4 lg:px-6 pb-1 lg:pb-2 text-sm lg:text-base inline-block whitespace-nowrap border-b-2 border-transparent text-[rgba(0, 0, 0, 0.8)]",
 									{ "border-secondary text-secondary": index === 0 }
 								)}>
 								{nav.text}

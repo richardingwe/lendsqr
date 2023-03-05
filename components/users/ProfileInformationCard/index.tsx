@@ -125,18 +125,21 @@ const ProfileInformationCard = ({ data }: { data: User }) => {
 	}, [data]);
 
 	return (
-		<section className='p-8 rounded box-shadow border border-[rgba(33, 63, 125, 0.06)] mt-8'>
+		<section className='p-4 lg:p-8 rounded box-shadow border border-[rgba(33, 63, 125, 0.06)] mt-8'>
 			{user.map((item, index) => {
 				return (
 					<div
 						key={item.sectionTitle + index}
-						className={cn("pb-8", {
+						className={cn("pb-2 lg:pb-8", {
 							"border-b-[0.5px] border-primary": user.length - 1 !== index,
 						})}>
-						<h3 className='text-primary mt-8 font-medium'>
+						<h3
+							className={cn("text-primary font-medium", {
+								" mt-4 lg:mt-8": index !== 0,
+							})}>
 							{item.sectionTitle}
 						</h3>
-						<div className='mt-8 grid grid-cols-5 gap-8'>
+						<div className='mt-4 lg:mt-8 grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-8'>
 							{item.sections.map((section, index) => {
 								return (
 									<div

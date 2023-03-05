@@ -81,98 +81,102 @@ const UsersTable = ({
 
 	return (
 		<>
-			<section className='bg-white p-8 w-full box-shadow mt-10 border border-[#213f7d0f] rounded'>
+			<section className='bg-white p-4 lg:p-8 w-full box-shadow mt-10 border border-[#213f7d0f] rounded'>
 				{isLoading ? (
 					<div className='w-full min-h-[400px] flex items-center justify-center'>
 						<ClipLoader color='#39CDCC' size={70} />
 					</div>
 				) : (
-					<table className='table-auto w-full text-tc-light'>
-						<thead>
-							<tr>
-								{tableHead.map((item, index) => {
+					<div className='w-full overflow-scroll'>
+						<table className='table-auto w-[1200px] xl:w-full text-tc-light'>
+							<thead>
+								<tr>
+									{tableHead.map((item, index) => {
+										return (
+											<th key={item.label + index}>
+												<Dropdown
+													className='left-0'
+													trigger={
+														<button className='flex space-x-2'>
+															<span className='text-xs whitespace-nowrap font-semibold uppercase'>
+																{item.label}
+															</span>
+															{item.label && <Icon.FilterResultsIcon />}
+														</button>
+													}>
+													<UsersFilter />
+												</Dropdown>
+											</th>
+										);
+									})}
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<div className='mt-5' />
+								</tr>
+								{tableData.map((item, index) => {
 									return (
-										<th key={item.label + index}>
-											<Dropdown
-												className='left-0'
-												trigger={
-													<button className='flex space-x-2'>
-														<span className='text-xs font-semibold uppercase'>
-															{item.label}
-														</span>
-														{item.label && <Icon.FilterResultsIcon />}
-													</button>
-												}>
-												<UsersFilter />
-											</Dropdown>
-										</th>
+										<tr
+											className={cn("py-4", {
+												"border-b border-[#213f7d1a]":
+													index !== tableData.length - 1,
+												"pb-0": index === tableData.length - 1,
+											})}
+											key={index}>
+											{Object.keys(item).map((key, index) => {
+												if (key === "id") return null;
+												return (
+													<td key={key + index}>
+														{key !== "status" ? (
+															<div className='py-5'>
+																<span className='text-sm whitespace-nowrap'>
+																	{item[key]}
+																</span>
+															</div>
+														) : (
+															<StatusPill status={item[key] as Statuses} />
+														)}
+													</td>
+												);
+											})}
+											<td>
+												<Dropdown
+													className='right-0'
+													trigger={
+														<button className='flex items-center justify-center'>
+															<Icon.MoreActionIcon />
+														</button>
+													}>
+													<div className='w-[180px] bg-white rounded box-shadow text-sm py-2.5 text-tc-light'>
+														<Link
+															href={`/users/${item.id}`}
+															className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
+															<Icon.ViewIcon />
+															<span>View Details</span>
+														</Link>
+														<button className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
+															<Icon.BlacklistIcon />
+															<span>Blacklist User</span>
+														</button>
+														<button className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
+															<Icon.ActivateIcon />
+															<span>Activate User</span>
+														</button>
+													</div>
+												</Dropdown>
+											</td>
+										</tr>
 									);
 								})}
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<div className='mt-5' />
-							</tr>
-							{tableData.map((item, index) => {
-								return (
-									<tr
-										className={cn("py-4", {
-											"border-b border-[#213f7d1a]":
-												index !== tableData.length - 1,
-											"pb-0": index === tableData.length - 1,
-										})}
-										key={index}>
-										{Object.keys(item).map((key, index) => {
-											if (key === "id") return null;
-											return (
-												<td key={key + index}>
-													{key !== "status" ? (
-														<div className='py-5'>
-															<span className='text-sm'>{item[key]}</span>
-														</div>
-													) : (
-														<StatusPill status={item[key] as Statuses} />
-													)}
-												</td>
-											);
-										})}
-										<td>
-											<Dropdown
-												className='right-0'
-												trigger={
-													<button className='flex items-center justify-center'>
-														<Icon.MoreActionIcon />
-													</button>
-												}>
-												<div className='w-[180px] bg-white rounded box-shadow text-sm py-2.5 text-tc-light'>
-													<Link
-														href={`/users/${item.id}`}
-														className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
-														<Icon.ViewIcon />
-														<span>View Details</span>
-													</Link>
-													<button className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
-														<Icon.BlacklistIcon />
-														<span>Blacklist User</span>
-													</button>
-													<button className='flex w-full items-center hover:bg-[#39cdcc0f] space-x-2 px-5 py-2.5'>
-														<Icon.ActivateIcon />
-														<span>Activate User</span>
-													</button>
-												</div>
-											</Dropdown>
-										</td>
-									</tr>
-								);
-							})}
-						</tbody>
-					</table>
+							</tbody>
+						</table>
+					</div>
 				)}
 			</section>
 
 			{data && (
-				<section className='mt-5 flex items-center justify-between'>
+				<section className='mt-5 flex flex-col lg:flex-row items-center justify-center lg:justify-between'>
 					<div className='flex items-center space-x-2 text-sm text-tc-light'>
 						<div>Showing</div>
 						<button className='flex items-center rounded bg-[#213f7d1a] px-3 py-2 space-x-4'>
@@ -182,7 +186,7 @@ const UsersTable = ({
 						<div>out of 100</div>
 					</div>
 
-					<div className='flex items-center space-x-5 text-tc-light'>
+					<div className='flex items-center my-6 lg:my-0 space-x-5 text-tc-light'>
 						<button className='flex items-center justify-center rounded bg-[#213f7d1a] p-2 rotate-90'>
 							<Icon.ArrowDownIcon />
 						</button>

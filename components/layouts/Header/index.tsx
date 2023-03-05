@@ -23,11 +23,16 @@ const Header = () => {
 		event?.stopPropagation();
 	};
 	return (
-		<header className='flex z-50 fixed top-0 left-0 right-0 items-center space-x-40 p-8 bg-white header-shadow'>
+		<header className='flex z-50 fixed top-0 left-0 right-0 items-center space-x-14 xl:space-x-40 py-4 lg:p-8 bg-white header-shadow'>
 			<Link href='/dashboard' className='ml-4'>
-				<Icon.LogoIcon width='144.8px' />
+				<div className='hidden lg:block'>
+					<Icon.LogoIcon width='144.8px' />
+				</div>
+				<div className='lg:hidden'>
+					<Icon.MobileLogoIcon />
+				</div>
 			</Link>
-			<div className='w-full flex items-center justify-between'>
+			<div className='hidden w-full lg:flex items-center justify-between'>
 				<FormProvider {...methods}>
 					<form onSubmit={methods.handleSubmit(onSubmit)} className=''>
 						<Input

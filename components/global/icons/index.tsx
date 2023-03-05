@@ -1,4 +1,5 @@
 import LogoIcon from "@/public/assets/icons/logo.svg";
+import MobileLogoIcon from "@/public/assets/icons/mobile_logo.svg";
 import SearchIcon from "@/public/assets/icons/search.svg";
 import NotificationIcon from "@/public/assets/icons/notification.svg";
 import CaretDownIcon from "@/public/assets/icons/caret-down.svg";
@@ -42,6 +43,7 @@ import LogoutIcon from "@/public/assets/icons/logout.svg";
 
 const Icon = {
 	LogoIcon,
+	MobileLogoIcon,
 	SearchIcon,
 	NotificationIcon,
 	CaretDownIcon,

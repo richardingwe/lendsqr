@@ -1,6 +1,10 @@
 import { cn } from "@/helpers/utils";
 
-const StatusPill = ({ status }: { status: string }) => {
+const StatusPill = ({
+	status,
+}: {
+	status: "Active" | "Inactive" | "Blacklisted" | "Pending";
+}) => {
 	const statusTheme = {
 		Active: "bg-status-success-10 text-status-success-100",
 		Inactive: "bg-[#545f7d0f] text-pc-light",

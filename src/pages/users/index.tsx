@@ -16,7 +16,6 @@ const UsersPage: NextPageWithLayout = () => {
 	useEffect(() => {
 		if (isSuccess) {
 			setUsers(data);
-			console.log(data);
 		}
 	}, [isSuccess, data, error]);
 

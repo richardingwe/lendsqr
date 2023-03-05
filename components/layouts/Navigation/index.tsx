@@ -83,7 +83,7 @@ const Navigation = ({
 								opacity: 0,
 								transition: { type: "just", delay: 0.1 },
 							}}
-							className='w-[283px] fixed left-0 overflow-scroll top-[80px] h-[calc(100vh-80px)] bg-white py-10 navigation-shadow'>
+							className='w-[283px] fixed z-40 left-0 overflow-scroll top-[80px] h-[calc(100vh-80px)] bg-white py-10 navigation-shadow'>
 							<button className='flex items-center space-x-2 px-8'>
 								<Icon.BriefcaseIcon />
 								<span className='text-primary'>Switch Organization</span>

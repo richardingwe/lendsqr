@@ -15,7 +15,7 @@ export const users = createApi({
 	refetchOnReconnect: true,
 	refetchOnFocus: true,
 	baseQuery: fetchBaseQuery({
-		baseUrl: process.env.NEXT_PUBLIC_APP_BASE_URL,
+		baseUrl: "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr",
 	}),
 	endpoints: (builder) => ({
 		getUsers: builder.query<UsersResponse, UsersRequest>({

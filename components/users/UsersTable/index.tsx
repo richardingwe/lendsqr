@@ -1,11 +1,14 @@
 import Dropdown from "@/components/global/Dropdown";
 import Icon from "@/components/global/icons";
 import StatusPill from "@/components/global/StatusPill";
-import { cn } from "@/helpers/utils";
+import { cn, formatDate } from "@/helpers/utils";
+import { UsersResponse } from "@/types/services/users";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import UsersFilter from "../UsersFilter";
 
-const UsersTable = () => {
+const UsersTable = ({ data }: { data: UsersResponse }) => {
+	const [tableData, setTableData] = useState([]);
 	const tableHead = [
 		{
 			label: "organization",
@@ -31,80 +34,28 @@ const UsersTable = () => {
 		},
 	];
 
-	const tableData = [
-		{
-			organization: "Lendsqr",
-			username: "Adedeji",
-			email: "adedeji@lendsqr.com",
-			phoneNumber: "08078903721",
-			dateJoined: "May 15, 2020 10:00 AM",
-			status: "Inactive",
-		},
-		{
-			organization: "Irorun",
-			username: "Debby Ogana",
-			email: "debby2@irorun.com",
-			phoneNumber: "08160780928",
-			dateJoined: "Apr 30, 2020 10:00 AM",
-			status: "Pending",
-		},
-		{
-			organization: "Lendstar",
-			username: "Grace Effiom",
-			email: "grace@lendstar.com",
-			phoneNumber: "07060780922",
-			dateJoined: "Apr 30, 2020 10:00 AM",
-			status: "Blacklisted",
-		},
-		{
-			organization: "Lendsqr",
-			username: "Tosin Dokunmu",
-			email: "tosin@lendsqr.com",
-			phoneNumber: "07003309226",
-			dateJoined: "Apr 10, 2020 10:00 AM",
-			status: "Active",
-		},
-		{
-			organization: "Lendsqr",
-			username: "Adedeji",
-			email: "adedeji@lendsqr.com",
-			phoneNumber: "08078903721",
-			dateJoined: "May 15, 2020 10:00 AM",
-			status: "Inactive",
-		},
-		{
-			organization: "Irorun",
-			username: "Debby Ogana",
-			email: "debby2@irorun.com",
-			phoneNumber: "08160780928",
-			dateJoined: "Apr 30, 2020 10:00 AM",
-			status: "Pending",
-		},
-		{
-			organization: "Lendstar",
-			username: "Grace Effiom",
-			email: "grace@lendstar.com",
-			phoneNumber: "07060780922",
-			dateJoined: "Apr 30, 2020 10:00 AM",
-			status: "Blacklisted",
-		},
-		{
-			organization: "Lendsqr",
-			username: "Tosin Dokunmu",
-			email: "tosin@lendsqr.com",
-			phoneNumber: "07003309226",
-			dateJoined: "Apr 10, 2020 10:00 AM",
-			status: "Active",
-		},
-		{
-			organization: "Lendsqr",
-			username: "Adedeji",
-			email: "adedeji@lendsqr.com",
-			phoneNumber: "08078903721",
-			dateJoined: "May 15, 2020 10:00 AM",
-			status: "Inactive",
-		},
-	];
+	useEffect(() => {
+		if (data) {
+			let formattedData = data.map((user) => {
+				const {
+					orgName: organization,
+					userName: username,
+					email,
+					phoneNumber,
+					createdAt: dateJoined,
+				} = user;
+				return {
+					organization,
+					username,
+					email,
+					phoneNumber,
+					dateJoined: formatDate(dateJoined),
+					status: "Active",
+				};
+			});
+			setTableData(formattedData);
+		}
+	}, [data]);
 
 	return (
 		<>

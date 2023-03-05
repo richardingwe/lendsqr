@@ -1,8 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { users } from "./services/users";
 
 export function makeStore() {
 	return configureStore({
-		reducer: {},
+		reducer: {
+			[users.reducerPath]: users.reducer,
+		},
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware().concat(users.middleware),
 	});
 }
 

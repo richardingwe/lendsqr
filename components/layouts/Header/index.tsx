@@ -4,8 +4,15 @@ import Input from "@/components/global/Input";
 import Image from "next/image";
 import Link from "next/link";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { Twirl as Hamburger } from "hamburger-react";
 
-const Header = () => {
+const Header = ({
+	isOpen,
+	setOpen,
+}: {
+	isOpen: boolean;
+	setOpen: (isOpen: boolean) => void;
+}) => {
 	const methods = useForm({
 		mode: "onChange",
 		defaultValues: {
@@ -23,8 +30,8 @@ const Header = () => {
 		event?.stopPropagation();
 	};
 	return (
-		<header className='flex z-50 fixed top-0 left-0 right-0 items-center space-x-14 xl:space-x-40 py-4 lg:p-8 bg-white header-shadow'>
-			<Link href='/dashboard' className='ml-4'>
+		<header className='flex z-50 fixed top-0 left-0 right-0 items-center justify-between lg:justify-start space-x-14 xl:space-x-40 py-4 lg:p-8 bg-white header-shadow'>
+			<Link onClick={() => setOpen(false)} href='/dashboard' className='ml-4'>
 				<div className='hidden lg:block'>
 					<Icon.LogoIcon width='144.8px' />
 				</div>
@@ -68,6 +75,15 @@ const Header = () => {
 						<Icon.CaretDownIcon />
 					</button>
 				</div>
+			</div>
+			<div className='lg:hidden'>
+				<Hamburger
+					color='#0b211a'
+					size={20}
+					label='Show menu'
+					toggled={isOpen}
+					toggle={setOpen}
+				/>
 			</div>
 		</header>
 	);

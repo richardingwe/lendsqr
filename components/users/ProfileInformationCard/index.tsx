@@ -1,116 +1,128 @@
 import { cn } from "@/helpers/utils";
+import { User } from "@/types/services/users";
+import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
-const ProfileInformationCard = () => {
-	const user = [
-		{
-			sectionTitle: "Personal Information",
-			sections: [
+const ProfileInformationCard = ({ data }: { data: User }) => {
+	const [user, setUser] = useState([]);
+
+	useEffect(() => {
+		if (data) {
+			const formattedData = [
 				{
-					title: "full Name",
-					value: "Grace Effiom",
+					sectionTitle: "Personal Information",
+					sections: [
+						{
+							title: "full Name",
+							value: data?.profile.firstName + " " + data?.profile.lastName,
+						},
+						{
+							title: "Phone Number",
+							value: data.phoneNumber,
+						},
+						{
+							title: "Email Address",
+							value: data.email,
+						},
+						{
+							title: "Bvn",
+							value: data.profile.bvn,
+						},
+						{
+							title: "Gender",
+							value: data.profile.gender,
+						},
+						{
+							title: "Marital status",
+							value: "Single",
+						},
+						{
+							title: "Children",
+							value: "None",
+						},
+						{
+							title: "Type of residence",
+							value: "Parent’s Apartment",
+						},
+					],
 				},
 				{
-					title: "Phone Number",
-					value: "07060780922",
+					sectionTitle: "Education and Employment",
+					sections: [
+						{
+							title: "level of education",
+							value: data.education.level,
+						},
+						{
+							title: "employment statuss",
+							value: data.education.employmentStatus,
+						},
+						{
+							title: "sector of employment",
+							value: data.education.sector,
+						},
+						{
+							title: "Duration of employment",
+							value: data.education.duration,
+						},
+						{
+							title: "office email",
+							value: data.education.officeEmail,
+						},
+						{
+							title: "Monthly income",
+							value: `₦${data.education.monthlyIncome[0] || 0} - ₦${
+								data.education.monthlyIncome[1] || 0
+							}`,
+						},
+						{
+							title: "loan repayment",
+							value: data.education.loanRepayment,
+						},
+					],
 				},
 				{
-					title: "Email Address",
-					value: "grace@gmail.com",
+					sectionTitle: "Socials",
+					sections: [
+						{
+							title: "Twitter",
+							value: data.socials?.twitter,
+						},
+						{
+							title: "Facebook",
+							value: data.socials?.facebook,
+						},
+						{
+							title: "Instagram",
+							value: data.socials?.instagram,
+						},
+					],
 				},
 				{
-					title: "Bvn",
-					value: "07060780922",
+					sectionTitle: "Guarantor",
+					sections: [
+						{
+							title: "full Name",
+							value: data?.guarantor.firstName + " " + data?.guarantor.lastName,
+						},
+						{
+							title: "Phone Number",
+							value: data.guarantor.phoneNumber,
+						},
+						{
+							title: "Address",
+							value: data.guarantor.address,
+						},
+						{
+							title: "Relationship",
+							value: "Sister",
+						},
+					],
 				},
-				{
-					title: "Gender",
-					value: "Female",
-				},
-				{
-					title: "Marital status",
-					value: "Single",
-				},
-				{
-					title: "Children",
-					value: "None",
-				},
-				{
-					title: "Type of residence",
-					value: "Parent’s Apartment",
-				},
-			],
-		},
-		{
-			sectionTitle: "Education and Employment",
-			sections: [
-				{
-					title: "level of education",
-					value: "B.Sc",
-				},
-				{
-					title: "employment statuss",
-					value: "Employed",
-				},
-				{
-					title: "sector of employment",
-					value: "FinTech",
-				},
-				{
-					title: "Duration of employment",
-					value: "2 years",
-				},
-				{
-					title: "office email",
-					value: "grace@lendsqr.com",
-				},
-				{
-					title: "Monthly income",
-					value: "₦200,000.00- ₦400,000.00",
-				},
-				{
-					title: "loan repayment",
-					value: "40,000",
-				},
-			],
-		},
-		{
-			sectionTitle: "Socials",
-			sections: [
-				{
-					title: "Twitter",
-					value: "@grace_effiom",
-				},
-				{
-					title: "Facebook",
-					value: "Grace Effiom",
-				},
-				{
-					title: "Instagram",
-					value: "@grace_effiom",
-				},
-			],
-		},
-		{
-			sectionTitle: "Guarantor",
-			sections: [
-				{
-					title: "full Name",
-					value: "Debby Ogana",
-				},
-				{
-					title: "Phone Number",
-					value: "07060780922",
-				},
-				{
-					title: "Email Address",
-					value: "debby@gmail.com",
-				},
-				{
-					title: "Relationship",
-					value: "Sister",
-				},
-			],
-		},
-	];
+			];
+			setUser(formattedData);
+		}
+	}, [data]);
 
 	return (
 		<section className='p-8 rounded box-shadow border border-[rgba(33, 63, 125, 0.06)] mt-8'>
@@ -131,7 +143,7 @@ const ProfileInformationCard = () => {
 										className='text-tc-dark'
 										key={section.title + section.value + index}>
 										<div className='text-xs uppercase'>{section.title}</div>
-										<div className='text-medium'>{section.value}</div>
+										<div className='text-medium break-all'>{section.value}</div>
 									</div>
 								);
 							})}

@@ -2,7 +2,7 @@ import UsersAnalytics from "@/components/users/UsersAnalytics";
 import UsersTable from "@/components/users/UsersTable";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import { useGetUsersQuery } from "@/src/services/users";
-import { User, UsersResponse } from "@/types/services/users";
+import { User } from "@/types/services/users";
 import { ReactElement, useEffect, useState } from "react";
 import { NextPageWithLayout } from "../_app";
 
@@ -17,13 +17,16 @@ const UsersPage: NextPageWithLayout = () => {
 		if (isSuccess) {
 			setUsers(data);
 		}
-	}, [isSuccess, data, error]);
+		if (error) {
+			console.log(error);
+		}
+	}, [isSuccess, data, error, isFetching]);
 
 	return (
 		<section>
 			<h1 className='text-primary font-medium text-2xl'>Users</h1>
 			<UsersAnalytics />
-			<UsersTable data={data} />
+			<UsersTable data={users} isLoading={isLoading} />
 		</section>
 	);
 };

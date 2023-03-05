@@ -3,10 +3,37 @@ import GoBack from "@/components/global/GoBack";
 import ProfileInformationCard from "@/components/users/ProfileInformationCard";
 import ProfileTopCard from "@/components/users/ProfileTopCard";
 import DashboardLayout from "@/layouts/DashboardLayout";
-import type { ReactElement } from "react";
+import { useLazyGetUserQuery } from "@/src/services/users";
+import { User } from "@/types/services/users";
+import { useRouter } from "next/router";
+import { ReactElement, use, useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 import { NextPageWithLayout } from "../../_app";
 
 const UsersPage: NextPageWithLayout = () => {
+	const router = useRouter();
+	const [user, setUser] = useState<User>();
+
+	const [getUser, result] = useLazyGetUserQuery();
+
+	const { data, error, isLoading, isSuccess } = result;
+
+	useEffect(() => {
+		router.query.id &&
+			getUser({
+				id: Number(router.query.id),
+			});
+	}, [router.query.id]);
+
+	useEffect(() => {
+		if (isSuccess) {
+			setUser(data);
+		}
+		if (error) {
+			console.log(error);
+		}
+	}, [isSuccess, data, error]);
+
 	return (
 		<section>
 			<GoBack text='Back to Users' />
@@ -29,9 +56,17 @@ const UsersPage: NextPageWithLayout = () => {
 				</div>
 			</div>
 
-			<ProfileTopCard />
+			{isLoading ? (
+				<div className='w-full min-h-[400px] flex items-center justify-center'>
+					<ClipLoader color='#39CDCC' size={70} />
+				</div>
+			) : (
+				<>
+					<ProfileTopCard data={user} />
 
-			<ProfileInformationCard />
+					<ProfileInformationCard data={user} />
+				</>
+			)}
 		</section>
 	);
 };

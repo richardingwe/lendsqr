@@ -8,7 +8,13 @@ import { useEffect, useState } from "react";
 import UsersFilter from "../UsersFilter";
 import { ClipLoader } from "react-spinners";
 
-const UsersTable = ({ data }: { data: UsersResponse }) => {
+const UsersTable = ({
+	data,
+	isLoading,
+}: {
+	data: UsersResponse;
+	isLoading: boolean;
+}) => {
 	const [tableData, setTableData] = useState<
 		{
 			organization: string;
@@ -76,7 +82,7 @@ const UsersTable = ({ data }: { data: UsersResponse }) => {
 	return (
 		<>
 			<section className='bg-white p-8 w-full box-shadow mt-10 border border-[#213f7d0f] rounded'>
-				{!data ? (
+				{isLoading ? (
 					<div className='w-full min-h-[400px] flex items-center justify-center'>
 						<ClipLoader color='#39CDCC' size={70} />
 					</div>

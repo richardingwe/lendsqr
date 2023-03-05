@@ -1,8 +1,9 @@
 import Icon from "@/components/global/icons";
 import { cn } from "@/helpers/utils";
+import { User } from "@/types/services/users";
 import Link from "next/link";
 
-const ProfileTopCard = () => {
+const ProfileTopCard = ({ data }: { data: User }) => {
 	const profileNavigation = [
 		{
 			text: "General Details",
@@ -33,9 +34,9 @@ const ProfileTopCard = () => {
 				<div className='flex items-center space-x-8'>
 					<div className='space-y-2'>
 						<div className='text-primary text-[22px] font-medium'>
-							Grace Effiom
+							{data?.profile?.firstName} {data?.profile?.lastName}
 						</div>
-						<div className='text-tc-light text-sm'>LSQFf587g90</div>
+						<div className='text-tc-light text-sm'>{data?.accountNumber}</div>
 					</div>
 
 					<div className='px-8 py-4 border-r border-l border-tc-light space-y-2'>
@@ -47,7 +48,7 @@ const ProfileTopCard = () => {
 
 					<div className='space-y-2'>
 						<div className='text-primary text-[22px] font-medium'>
-							₦200,000.00
+							₦{data?.accountBalance}
 						</div>
 						<div className='text-tc-light text-sm'>
 							9912345678/Providus Bank

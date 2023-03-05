@@ -45,3 +45,9 @@ export interface User {
 export type UsersResponse = User[];
 
 export type UsersRequest = {};
+
+export type UserResponse = User;
+
+export type UserRequest = {
+	id: number;
+};

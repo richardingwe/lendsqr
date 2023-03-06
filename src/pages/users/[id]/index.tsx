@@ -40,16 +40,16 @@ const UsersPage: NextPageWithLayout = () => {
 			<div className='mt-6 flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between sm:items-center'>
 				<h1 className='text-primary font-medium text-2xl'>Users</h1>
 
-				<div className='flex items-center space-x-5'>
+				<div className='flex flex-col xs:flex-row items-center xs:space-x-5 space-y-3 xs:space-y-0'>
 					<Button
 						size='sm'
-						className='uppercase border-status-error-100 text-status-error-100'
+						className='uppercase w-full xs:w-auto border-status-error-100 text-status-error-100'
 						theme='outline'>
 						Blacklist User
 					</Button>
 					<Button
 						size='sm'
-						className='uppercase border-secondary text-secondary'
+						className='uppercase w-full xs:w-auto border-secondary text-secondary'
 						theme='outline'>
 						Activate User
 					</Button>

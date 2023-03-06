@@ -87,8 +87,8 @@ const UsersTable = ({
 						<ClipLoader color='#39CDCC' size={70} />
 					</div>
 				) : (
-					<div className='w-full overflow-x-scroll'>
-						<table className='table-auto w-[1200px] lg:w-full text-tc-light'>
+					<div className='w-full xl:w-[900px] mx-auto 2xl:w-full overflow-x-scroll'>
+						<table className='table-auto w-full text-tc-light'>
 							<thead>
 								<tr>
 									{tableHead.map((item, index) => {

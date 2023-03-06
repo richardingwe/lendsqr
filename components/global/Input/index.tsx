@@ -1,3 +1,4 @@
+import { cn } from "@/helpers/utils";
 import { InputProps } from "@/types/global/InputProps";
 import { useEffect, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
@@ -200,17 +201,22 @@ const Input = ({
 
 	return (
 		<label htmlFor={id} className='flex flex-col relative'>
-			<span className='w-full font-medium text-sm text-left leading-5 capitalize text-tc-main mb-2'>
-				{label}
-			</span>
+			{label && (
+				<span className='w-full font-medium text-sm text-left leading-5 capitalize text-tc-main mb-2'>
+					{label}
+				</span>
+			)}
 			<input
 				onFocus={() => setPasswordIsDirty(true)}
 				{...register}
-				className={`w-full active:border-primary text-tc-main focus:bg-pc-02 ${inputTheme(
-					theme
-				)} text-sm h-[50px] overflow-hidden font-normal rounded-[5px] outline-none ${className} ${
-					type === "password" ? "pr-16" : ""
-				} ${left ? paddingLeft : ""} ${right ? paddingRight : ""}`}
+				className={cn(
+					"w-full active:border-primary text-tc-main focus:bg-pc-02 text-sm h-[50px] overflow-hidden font-normal rounded-[5px] outline-none",
+					inputTheme(theme),
+					className,
+					type === "password" ? "pr-16" : "",
+					left ? paddingLeft : "",
+					right ? paddingRight : ""
+				)}
 				type={showPassword ? "text" : type}
 				placeholder={placeholder}
 				id={id}
@@ -230,7 +236,10 @@ const Input = ({
 				<button
 					type='button'
 					onClick={() => setShowPassword(!showPassword)}
-					className='absolute focus:border-primary focus:outline-primary flex items-center justify-center h-[50px] w-12 right-[2px] top-[10px] cursor-pointer'>
+					className={cn(
+						"absolute focus:border-primary focus:outline-primary flex items-center justify-center h-[50px] w-12 right-[2px] top-[10px] cursor-pointer",
+						{ "top-[2px]": !label }
+					)}>
 					<div className='text-secondary uppercase text-xs pr-4'>
 						{!showPassword ? "Show" : "Hide"}
 					</div>
@@ -238,13 +247,21 @@ const Input = ({
 			)}
 
 			{right && (
-				<div className='absolute flex items-center justify-center right-0 top-[8px]'>
+				<div
+					className={cn(
+						"absolute flex items-center justify-center right-0 top-[8px]",
+						{ "top-0": !label }
+					)}>
 					{right}
 				</div>
 			)}
 
 			{left && (
-				<div className='absolute flex items-center justify-center left-0 top-[8px]'>
+				<div
+					className={cn(
+						"absolute flex items-center justify-center left-0 top-[8px]",
+						{ "top-0": !label }
+					)}>
 					{left}
 				</div>
 			)}

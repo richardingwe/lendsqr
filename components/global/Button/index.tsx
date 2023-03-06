@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BeatLoader } from "react-spinners";
 import { useRouter } from "next/router";
 import { ButtonProps } from "@/types/global/ButtonProps";
+import { cn } from "@/helpers/utils";
 
 const Button: React.FC<ButtonProps> = ({
 	loading = false,
@@ -85,9 +86,11 @@ const Button: React.FC<ButtonProps> = ({
 							: href
 						: href || router.pathname
 				}
-				className={`${LinkTheme(theme)} ${
-					underline ? "underline" : null
-				} ${className}`}>
+				className={cn(
+					LinkTheme(theme),
+					underline ? "underline" : null,
+					className
+				)}>
 				{children}
 			</Link>
 		);
@@ -97,9 +100,12 @@ const Button: React.FC<ButtonProps> = ({
 		<button
 			type={type}
 			disabled={disabled || loading}
-			className={`flex items-center justify-center transition-all tracking-[0.1em] font-semibold ease-in text-sm text-center gap-4 disabled:cursor-not-allowed ${buttonTheme(
-				theme
-			)} ${buttonSize(size)} ${className}`}
+			className={cn(
+				"flex items-center justify-center transition-all tracking-[0.1em] font-semibold ease-in text-sm text-center gap-4 disabled:cursor-not-allowed",
+				buttonTheme(theme),
+				buttonSize(size),
+				className
+			)}
 			{...rest}>
 			{loading ? (
 				<BeatLoader color={iconColor(theme)} loading={loading} size={12} />

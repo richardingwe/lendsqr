@@ -30,7 +30,7 @@ const Header = ({
 		event?.stopPropagation();
 	};
 	return (
-		<header className='flex z-50 fixed top-0 left-0 right-0 items-center justify-between lg:justify-start space-x-14 xl:space-x-40 py-4 lg:py-8 lg:pl-4 lg:pr-14 bg-white header-shadow'>
+		<header className='flex z-50 fixed top-0 left-0 right-0 items-center justify-between xl:justify-start space-x-14 xl:space-x-40 py-4 xl:py-8 xl:pl-4 xl:pr-14 bg-white header-shadow'>
 			<Link onClick={() => setOpen(false)} href='/dashboard' className='ml-4'>
 				<div className='hidden lg:block'>
 					<Icon.LogoIcon width='144.8px' />
@@ -39,7 +39,7 @@ const Header = ({
 					<Icon.MobileLogoIcon />
 				</div>
 			</Link>
-			<div className='hidden w-full lg:flex items-center justify-between'>
+			<div className='hidden w-full xl:flex items-center justify-between'>
 				<FormProvider {...methods}>
 					<form onSubmit={methods.handleSubmit(onSubmit)} className=''>
 						<Input
@@ -76,7 +76,7 @@ const Header = ({
 					</button>
 				</div>
 			</div>
-			<div className='lg:hidden'>
+			<div className='xl:hidden'>
 				<Hamburger
 					color='#0b211a'
 					size={20}

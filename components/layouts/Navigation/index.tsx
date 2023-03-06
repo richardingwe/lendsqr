@@ -1,9 +1,9 @@
 import Icon from "@/components/global/icons";
 import { navigations } from "@/data/navigationData";
 import { cn } from "@/helpers/utils";
-import { useActiveLink } from "hooks/useActiveLink";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const Navigation = ({
 	isOpen,
@@ -12,6 +12,17 @@ const Navigation = ({
 	isOpen: boolean;
 	setOpen: (isOpen: boolean) => void;
 }) => {
+	const router = useRouter();
+
+	const activeLink = (href: string): boolean => {
+		const isActive: boolean =
+			router.pathname === "/" && href === "/"
+				? true
+				: router.pathname.includes(href) && href !== "/"
+				? true
+				: false;
+		return isActive;
+	};
 	return (
 		<>
 			<section className='hidden xl:block w-[283px] fixed left-0 overflow-scroll top-[112px] h-[calc(100vh-112px)] bg-white py-10 navigation-shadow'>
@@ -38,7 +49,7 @@ const Navigation = ({
 														"flex w-full opacity-60 hover:opacity-100 px-8 py-[10px] border-l-[3px] transition-all border-transparent hover:border-secondary hover:bg-[#39cdcc0f] items-center space-x-2",
 														{
 															"opacity-100 border-secondary bg-[#39cdcc0f]":
-																useActiveLink(link.to),
+																activeLink(link.to),
 														}
 													)}>
 													{link.icon}
@@ -111,7 +122,7 @@ const Navigation = ({
 																	"flex w-full opacity-60 hover:opacity-100 px-8 py-[10px] border-l-[3px] transition-all border-transparent hover:border-secondary hover:bg-[#39cdcc0f] items-center space-x-2",
 																	{
 																		"opacity-100 border-secondary bg-[#39cdcc0f]":
-																			useActiveLink(link.to),
+																			activeLink(link.to),
 																	}
 																)}>
 																{link.icon}

@@ -25,7 +25,7 @@ const Navigation = ({
 	};
 	return (
 		<>
-			<section className='hidden xl:block w-[283px] fixed left-0 overflow-scroll top-[112px] h-[calc(100vh-112px)] bg-white py-10 navigation-shadow'>
+			<section className='hidden xl:block z-40 w-[283px] fixed left-0 overflow-scroll top-[112px] h-[calc(100vh-112px)] bg-white py-10 navigation-shadow'>
 				<button className='flex items-center space-x-2 px-8'>
 					<Icon.BriefcaseIcon />
 					<span className='text-primary'>Switch Organization</span>

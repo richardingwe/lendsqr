@@ -27,7 +27,7 @@ const DashboardLayout = ({
 				<Header isOpen={isOpen} setOpen={setOpen} />
 				<div className='flex'>
 					<Navigation isOpen={isOpen} setOpen={setOpen} />
-					<main className='mt-[80px] lg:mt-[112px] xl:ml-[283px] w-full container pt-6 lg:p-16'>
+					<main className='mt-[80px] lg:mt-[112px] max-lg:container xl:ml-[283px] w-full pt-6 lg:p-16'>
 						{children}
 					</main>
 				</div>

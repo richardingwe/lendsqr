@@ -30,7 +30,7 @@ const Header = ({
 		event?.stopPropagation();
 	};
 	return (
-		<header className='flex z-50 fixed top-0 left-0 right-0 items-center justify-between lg:justify-start space-x-14 xl:space-x-40 py-4 lg:p-8 bg-white header-shadow'>
+		<header className='flex z-50 fixed top-0 left-0 right-0 items-center justify-between lg:justify-start space-x-14 xl:space-x-40 py-4 lg:py-8 lg:pl-4 lg:pr-14 bg-white header-shadow'>
 			<Link onClick={() => setOpen(false)} href='/dashboard' className='ml-4'>
 				<div className='hidden lg:block'>
 					<Icon.LogoIcon width='144.8px' />

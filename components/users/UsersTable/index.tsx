@@ -113,7 +113,9 @@ const UsersTable = ({
 							</thead>
 							<tbody>
 								<tr>
-									<div className='mt-5' />
+									<td>
+										<div className='mt-5'></div>
+									</td>
 								</tr>
 								{tableData.map((item, index) => {
 									return (

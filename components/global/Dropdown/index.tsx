@@ -27,12 +27,9 @@ const Dropdown = ({
 	);
 
 	return (
-		<div
-			className='relative'
-			ref={menuRef}
-			onClick={() => setShowDropdown(!showDropdown)}>
-			{trigger}
-			<div onClick={(e) => e.stopPropagation()}>
+		<div className='relative' ref={menuRef}>
+			<div onClick={() => setShowDropdown(!showDropdown)}>{trigger}</div>
+			<div>
 				{showDropdown && (
 					<motion.div
 						initial={{ scale: 0.5, opacity: 0 }}

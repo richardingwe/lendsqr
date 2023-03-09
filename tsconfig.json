@@ -22,7 +22,7 @@
 			"@/styles/*": ["styles/*"],
 			"@/layouts/*": ["layouts/*"],
 			"@/config/*": ["config/*"],
-			"@/helpers/*": ["utilities/*"],
+			"@/helpers/*": ["helpers/*"],
 			"@/data/*": ["data/*"],
 			"@/src/*": ["src/*"],
 			"*": ["*"]

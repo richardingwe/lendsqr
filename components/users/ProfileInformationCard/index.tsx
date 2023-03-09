@@ -1,4 +1,4 @@
-import { cn } from "@/helpers/utils";
+import { cn } from "helpers/utils";
 import { User } from "@/types/services/users";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";

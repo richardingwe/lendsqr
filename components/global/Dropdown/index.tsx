@@ -1,5 +1,5 @@
-import listenForOutsideClicks from "@/helpers/listen-for-outside-clicks";
-import { cn } from "@/helpers/utils";
+import listenForOutsideClicks from "helpers/listen-for-outside-clicks";
+import { cn } from "helpers/utils";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 

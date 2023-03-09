@@ -1,7 +1,7 @@
 import Dropdown from "@/components/global/Dropdown";
 import Icon from "@/components/global/icons";
 import StatusPill, { Statuses } from "@/components/global/StatusPill";
-import { cn, formatDate } from "@/helpers/utils";
+import { cn, formatDate } from "helpers/utils";
 import { UsersResponse } from "@/types/services/users";
 import Link from "next/link";
 import { useEffect, useState } from "react";

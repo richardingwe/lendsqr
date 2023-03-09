@@ -1,4 +1,4 @@
-import listenForOutsideClicks from "@/helpers/listen-for-outside-clicks";
+import listenForOutsideClicks from "helpers/listen-for-outside-clicks";
 import { useEffect, useRef, useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { useUpdateEffect } from "react-use";

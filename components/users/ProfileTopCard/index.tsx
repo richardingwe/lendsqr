@@ -1,5 +1,5 @@
 import Icon from "@/components/global/icons";
-import { cn } from "@/helpers/utils";
+import { cn } from "helpers/utils";
 import { User } from "@/types/services/users";
 import Link from "next/link";
 

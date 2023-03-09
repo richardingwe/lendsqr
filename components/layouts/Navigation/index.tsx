@@ -1,6 +1,6 @@
 import Icon from "@/components/global/icons";
 import { navigations } from "@/data/navigationData";
-import { cn } from "@/helpers/utils";
+import { cn } from "helpers/utils";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";

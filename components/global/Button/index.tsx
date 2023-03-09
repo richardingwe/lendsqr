@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BeatLoader } from "react-spinners";
 import { useRouter } from "next/router";
 import { ButtonProps } from "@/types/global/ButtonProps";
-import { cn } from "@/helpers/utils";
+import { cn } from "../../../helpers/utils";
 
 const Button: React.FC<ButtonProps> = ({
 	loading = false,
@@ -76,7 +76,7 @@ const Button: React.FC<ButtonProps> = ({
 		}
 	};
 
-	if (tag === "a") {
+	if (tag === "a" || href) {
 		return (
 			<Link
 				href={
@@ -86,6 +86,7 @@ const Button: React.FC<ButtonProps> = ({
 							: href
 						: href || router.pathname
 				}
+				target={isExternal ? "_blank" : "_self"}
 				className={cn(
 					LinkTheme(theme),
 					underline ? "underline" : null,
